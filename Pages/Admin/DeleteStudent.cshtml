@@ -1,0 +1,40 @@
+﻿@page
+@model CapstoneProject.Pages.Admin.DeleteStudentModel
+@using System.Data.SqlClient;
+@{
+    try
+    {
+        int s_id = Convert.ToInt32(Request.Query["id"]);
+
+        string connection = "Data Source=INLPF2RXRDD\\MSSQLSERVER1;Initial Catalog=Capstone;trusted_connection=true";
+        SqlConnection conn = new SqlConnection(connection);
+        conn.Open();
+
+        SqlCommand cmd = new SqlCommand("student_delete", conn);
+        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+        cmd.Parameters.Add("@sid", System.Data.SqlDbType.Int).Value = s_id;
+        
+
+        cmd.ExecuteNonQuery();
+
+
+
+        conn.Close();
+    }
+
+    catch (SqlException ex)
+    {
+        Console.WriteLine(ex.Message);
+        Console.WriteLine("Sql Related Issue");
+    }
+    catch (Exception exp)
+    {
+        Console.WriteLine(exp.Message);
+        Console.WriteLine("C# related Issue");
+    }
+
+    Response.Redirect("/Student/StudentDetails");
+
+}

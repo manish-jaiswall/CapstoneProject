@@ -1,0 +1,71 @@
+﻿@page
+@model CapstoneProject.Pages.Student.StudentLoginModel
+@{
+
+}
+@if (Model.success_msg.Length > 0)
+{
+    <p class="text-black bg-primary">Credentials Verified</p>
+     foreach (var x in Model.stu_list)
+    {
+
+        <a href="/Student/StudentView?student_email=@x.student_email&student_password=@x.student_password" class="btn btn-success"> Click here to Proceed</a>
+    }
+    @*foreach (var x in Model.stu_list)
+    {
+        Response.Redirect ("/Student/StudentView?student_email=@x.student_email&student_password=@x.student_password");
+    }*@
+
+}
+@if (Model.error_msg.Length > 0)
+{
+
+    <div>
+        <div class="row-cols-1">
+            <div class="alert alert-danger alert-dismissible">
+                @Model.error_msg
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    body {
+        background-size: 1500px;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1RLE1rjwEJmMLHRafVRmpN_tiR4n7Bx1Kw&usqp=CAU);
+    }
+</style>
+
+<header class="head navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+    <h1 class="text-center text-primary">STUDENT LOGIN PAGE</h1>
+</header>
+<br />
+<br />
+<form method="post">
+    <div class="row row-cols-1">
+
+        <label class="col-form-label">Student Email</label>
+        <div>
+            <input type="email" class="form-control" name="student_email" value="" required>
+        </div>
+
+  
+        <label class="col-form-label">Password</label>
+        <div>
+            <input type="password" class="form-control" name="student_password" value="" required>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <button class="btn btn-success" >SUBMIT</button>
+            <a href="/Student/StudentDecide" type="reset" class="btn btn-danger">Cancel</a>
+        </div>
+
+    </div>
+</form>
+<br />
+
+
+Don't Have An Account? <a href="/Student/StudentSignUp">SignUp</a>

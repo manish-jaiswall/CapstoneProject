@@ -1,0 +1,76 @@
+﻿@page
+@model CapstoneProject.Pages.Admin.UpdateCoursesModel
+@{
+}
+@if (Model.success_msg.Length > 0)
+{
+
+    <div>
+        <div class="row-cols-1">
+            <div class="alert alert-success alert-dismissible">
+                @Model.success_msg
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.error_msg.Length > 0)
+{
+
+    <div>
+        <div class="row-cols-1">
+            <div class="alert alert-danger alert-dismissible">
+                @Model.error_msg
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    body {
+        background-size: 2200px;
+        background-image: url(https://images.unsplash.com/photo-1667429135701-0df2b16de1b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80);
+    }
+</style>
+<form method="post">
+    <div class="row row-cols-1">
+        <label class="col-form-label">Student ID</label>
+        <div>
+            <input type="number" class="form-control" name="Student_ID" value="@Model.course_update1.student_id" readonly></input>
+        </div>
+        <label class="col-form-label">Course 1</label>
+        <div>
+            <input type="text" class="form-control" name="Course1" value="@Model.course_update1.course1" required></input>
+        </div>
+        <label class="col-form-label">Course 2</label>
+        <div>
+            <input type="text" class="form-control" name="Course2" value="@Model.course_update1.course2" required></input>
+        </div>
+        <label class="col-form-label">Course 3</label>
+        <div>
+            <input type="text" class="form-control" name="Course3" value="@Model.course_update1.course3" required></input>
+        </div>
+
+        <label class="col-form-label">Course 4</label>
+        <div>
+            <input type="text" class="form-control" name="Course4" value="@Model.course_update1.course4" required></input>
+        </div>
+
+        <label class="col-form-label">Course 5</label>
+        <div>
+            <input type="text" class="form-control" name="Course5" value="@Model.course_update1.course5" required></input>
+        </div>
+       
+        
+        <br>
+        <br>
+        <br>
+        <div>
+            <button class="btn btn-success">SUBMIT</button>
+            <a href="/Student/StudentDetails" type="reset" class="btn btn-danger">Cancel</a>
+        </div>
+
+    </div>
+</form>

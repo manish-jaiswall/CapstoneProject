@@ -1,0 +1,91 @@
+﻿@page
+@model CapstoneProject.Pages.Student.StudentSignUpModel
+@{
+}
+@if (Model.success_msg.Length > 0)
+{
+    
+    <div>
+        <div class="row-cols-1">
+            <div class="alert alert-success alert-dismissible">
+                @Model.success_msg
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.error_msg.Length > 0)
+{
+
+    <div>
+        <div class="row-cols-1">
+            <div class="alert alert-danger alert-dismissible">
+                @Model.error_msg
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+}
+<header class="head navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+    <h1 class="text-center text-warning">STUDENT SIGN-UP PAGE</h1>
+</header>
+
+<style>
+    body {
+        background-size: 1500px;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx5gLiBM15QeymVhIyPdQ7aAzuhJa4rc-T8Q&usqp=CAU);
+    }
+</style>
+<form method="post">
+        <div class="row row-cols-1">
+           
+           
+            <label class="col-form-label">Student Name</label>
+            <div>
+                <input type="text" class="form-control" name="student_name" value="" required>
+            </div>
+
+            <label class="col-form-label">Student Email</label>
+            <div>
+                <input type="email" class="form-control" name="student_email" value="" required>
+            </div>
+
+            <label class="col-form-label">Student Department</label>
+            <div >
+            <select type="text" name="student_department" class="form-control"  required>
+                <option value="">Select Your Department</option>
+                <option value="Computer Science And Engineering">Computer Science And Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+              
+            </select>
+           </div>
+            <label class="col-form-label">Password</label>
+            <div>
+                <input type="password" class="form-control" name="student_password" value="" required>
+            </div>
+        <label class="col-form-label">Course ID(Type 1 for CSE, 2 for EE and 3 for ME)</label>
+        <div>
+            <select type="number" class="form-control" name="course_id"  required>
+                <option value="">Select Your DepartmentCourse</option>
+                <option value="1">Computer Science And Engineering Subjects</option>
+                <option value="3">Mechanical Engineering Subjects</option>
+                <option value="2">Electrical Engineering Subjects</option>
+                </select>
+        </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <button class="btn btn-success">SUBMIT</button>
+                <a href="/Student/StudentDecide" type="reset" class="btn btn-danger">Cancel</a>
+            </div>
+
+        </div>
+    </form>
+<br />
+ 
+Already Have An Account? <a href="/Student/StudentLogin">Login</a>
+<br />
+Not a Student? <a href="/Admin/AdminLogin">Click Here</a>

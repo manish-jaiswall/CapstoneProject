@@ -1,0 +1,57 @@
+﻿@page
+@model CapstoneProject.Pages.Student.StudentDetailsModel
+@{
+    <header class="head navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+        <h1 class="text-center text-primary">STUDENT DETAILS</h1>
+    </header>
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Student_ID </th>
+                <th>Student Name </th>
+                <th>Student Email</th>
+                <th> Department</th>
+                <th> Password</th>
+                <th>Course ID</th>
+                <th>Update</th>
+                <th>Courses</th>
+                <th>Delete </th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var x in Model.stu_list)
+            {
+                <tr>
+                    <td>@x.student_id</td>
+                    <td>@x.student_name</td>
+                    <td>@x.student_email</td>
+                    <td>@x.student_department</td>
+                    <td>@x.student_password</td>
+                    <td>@x.course_id</td>
+                    <td><a href="/Admin/EditStudent?id=@x.student_id" class="btn btn-success"> Update Details</a></td>
+                    <td><a href="/Admin/UpdateCourses?id=@x.student_id&course_id=@x.course_id" class="btn btn-warning">  Courses</a></td>
+                    <td><a href="/Admin/DeleteStudent?id=@x.student_id" class="btn btn-danger"> Delete</a></td>
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+<style>
+    body {
+        background-size: 1200px;
+        background-image: url(https://img.freepik.com/free-vector/white-gray-geometric-pattern-background-vector_53876-136510.jpg?w=996&t=st=1668669532~exp=1668670132~hmac=a00a1b4c78057c9ef157374b8607c0b6cb483453caac1677dc50782fe3e122b7);
+    }
+</style>
+
+<br />
+<br />
+
+<a href="/Admin/AdminLogin" class="btn btn-danger">Logout</a>
+

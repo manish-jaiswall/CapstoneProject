@@ -1,0 +1,89 @@
+﻿@page
+@model CapstoneProject.Pages.Student.StudentViewModel
+@{
+}
+
+<header class="head navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+    <h1 class="text-center text-success">YOUR INFORMATION</h1>
+</header>
+<style>
+    body {
+        background-size: 2200px;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49ePonU_czqhF4d8WQzNWGR0cq-OWnzCtmQ&usqp=CAU);
+    }
+</style>
+<h3 class=" text-black">Student Details</h3>
+
+<form method="get">
+    
+    <br />
+    <div class="text-primary fw-bold">
+      @Model.student_n
+    </div>
+    <br />
+   
+    <div class="row row-cols-1">
+
+        <label class="col-form-label">Student ID</label>
+        <div>
+            <input type="number" class="form-control" name="Student_ID" value="@Model.s1.student_id" readonly></input>
+        </div>
+
+        <label class="col-form-label">Student Name</label>
+        <div>
+            <input type="text" class="form-control" name="Student_Name" value="@Model.s1.student_name " readonly></input>
+        </div>
+
+        <label class="col-form-label">Student Email</label>
+        <div>
+            <input type="email" class="form-control" name="Student_Email" value="@Model.s1.student_email" readonly></input>
+        </div>
+
+        <label class="col-form-label">Student Department</label>
+        <div>
+            <input type="text" class="form-control" name="Student_Department" value="@Model.s1.student_department" readonly></input>
+        </div>
+       
+        <label class="col-form-label">Course ID</label>
+
+        <div>
+            <input type="number" class="form-control" name="Student_Courseid" value="@Model.s1.course_id" readonly></input>
+        </div>
+        <br />
+        <br />
+        <h3 class="text-warning">Course Details</h3>
+        <br>
+        <br>
+
+        <label class="col-form-label">Course1</label>
+        <div>
+            <input type="text" class="form-control" name="Course1" value="@Model.c1.course1" readonly></input>
+        </div>
+        <label class="col-form-label">Course2</label>
+        <div>
+            <input type="text" class="form-control" name="Course2" value="@Model.c1.course2" readonly></input>
+        </div>
+        <label class="col-form-label">Course3</label>
+        <div>
+            <input type="text" class="form-control" name="Course3" value="@Model.c1.course3" readonly></input>
+        </div>
+        <label class="col-form-label">Course4</label>
+        <div>
+            <input type="text" class="form-control" name="Course4" value="@Model.c1.course4" readonly></input>
+        </div>
+        <label class="col-form-label">Course5</label>
+        <div>
+            <input type="text" class="form-control" name="Course5" value="@Model.c1.course5" readonly></input>
+        </div>
+
+        
+       @* <div>
+            <button class="btn btn-success">SUBMIT</button>
+            <a href="/Student/StudentDetails" type="reset" class="btn btn-danger">Cancel</a>
+        </div>*@
+        
+    </div>
+</form>
+<br />
+<br />
+<a href="/Student/StudentLogin" class="btn btn-danger">Logout</a>
